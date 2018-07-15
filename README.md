@@ -26,4 +26,4 @@ __*Results*__
 
 The results of the MPC project demonstrating the car moving in autonomous mode around the Unity simulator track are shown below.
 
-[![MPC Project](https://github.com/calvinhobbes119/Model-Predictive-Control/blob/master/Untitled.png)](https://youtu.be/6ydnQEybQac)
+[![MPC Project](https://github.com/calvinhobbes119/Path-Planning-Project/blob/master/Untitled.png)](https://youtu.be/6ydnQEybQac)

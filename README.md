@@ -21,6 +21,12 @@ __*main.cpp*__
 
 __*Results*__
 
-The results of the Path Planning project demonstrating the car moving in autonomous mode around the Unity simulator track are shown below.
+The results of the Path Planning project demonstrating the car moving in autonomous mode around the Unity simulator track are shown below. As shown in the video, the path planner satisfies the following criteria:
+
+1. The ego car drives 4.32 miles without incidents involving exceeding acceleration/jerk/speed, collision, or driving outside of the lanes.
+2. The car drives below the speed limit and also the car isn't driving much slower than speed limit unless obstructed by traffic.
+3. The car does not exceed a total acceleration of 3 m/s^2 and a jerk of 3 m/s^3.
+4. The car performs smooth lane changes within 3 seconds and the vehicle stays within the 3 lanes on the right hand side of the road.
+5. The car is able to smoothly change lanes when it makes sense to do so, such as when behind a slower moving car and an adjacent lane is clear of other traffic.
 
 [![Path_Planning_Project](https://github.com/calvinhobbes119/Path-Planning-Project/blob/master/Untitled.png)](https://youtu.be/6ydnQEybQac)

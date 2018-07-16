@@ -13,17 +13,14 @@ For this project I made the following changes to the starter code.
 
 __*main.cpp*__
 
-1. I transformed the telemetry data by converting the speed _v_ into m/s from mph.
-2. I converted the waypoints from map-coordinates to vehicle coordinates by applying a matrix transformation, and fit a 3rd order polynomial function to the waypoints. The coefficients of this polynomial _f_ will be provided to the MPC solver to predict the optimal control trajectory for minimizing a cost function.
-3. To determine the state parameters _CTE_ and _psi_, we use _f(0)_ and _f'(0)_.
-4. The state vector and best-fit polynomial coeffs are fed to the MPC solve routing.
-5. The MPC solve routine returns the actuator settings for the next time step, as well as the predicted optimal trajectory which minimizes the cost function over _N_ timesteps.
-6. The steering actuator value is normalized by _deg2rad(25)_ to convert the steering value to be between _[-1,1]_.
-7. The MPC predicted trajectory is returned to the Unity simulator as a json message for visualization purposes.
+1. In main() I added 3 functions for predicting the behavior of neighboring vehicles, planning high-level behavior and generating a smooth trajectory of waypoints for the vehicle to traverse.
+2. The prediction module uses sensor fusion data to track the nearest cars ahead and behind of the ego car in each lane. This information will be used by the behavior planner to determine if there is enough of a gap in neighboring lanes to perform a lane change.
+3. The behavior planning module uses the output of the prediction module to determine the desired lane and speed for the ego vehicle. It makes this determination using logic-based rules. If there are no obstacles in the current lane the vehicle stays in the current vehicle, accelerating to the speed-limit if possible. On the other hand, if there are obstacles in the current lane, the ego vehicle seeks to make a lane change to a neighboring lane if it is feasible and desirable. A lane change is feasible if there is a gap big enough for the vehicle to move into the neighboring lane. A lane change is desirable if the target lane is moving faster or has more free space in front of the ego vehicle. If a lane change is not desirable or feasible, the ego vehicle stays in the current lane and reduces speed to match the vehicle in front of it. The behavior planner module outputs the desired lane and speed for the ego vehicle to the trajectory planner.
+4. The trajectory planner module takes the the desired lane and speed and extends the previously planned trajectory as a smooth curve to incorporate the new target state. The construction of the trajectory planner follows the steps described in the project walkthrough video.
 
 
 __*Results*__
 
-The results of the MPC project demonstrating the car moving in autonomous mode around the Unity simulator track are shown below.
+The results of the Path Planning project demonstrating the car moving in autonomous mode around the Unity simulator track are shown below.
 
-[![MPC Project](https://github.com/calvinhobbes119/Path-Planning-Project/blob/master/Untitled.png)](https://youtu.be/6ydnQEybQac)
+[![Path_Planning_Project](https://github.com/calvinhobbes119/Path-Planning-Project/blob/master/Untitled.png)](https://youtu.be/6ydnQEybQac)

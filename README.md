@@ -1,7 +1,7 @@
-# Model-Predictive-Control
+# Path Planning Project
 Udacity Self-Driving NanoDegree Term 3 Project on Path Planning
 
-## Project: Model-Predictive-Control [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
+## Project: Path Planning [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
 Overview
 ---
